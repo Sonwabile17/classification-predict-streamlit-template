@@ -146,6 +146,7 @@ Where the specific `Network` and `External` URLs correspond to those assigned to
 
 ![Streamlit base page](resources/imgs/streamlit-base-splash-screen.png)
 
+
 **[On the Host]:**
 
 7. To keep your web app running continuously in the background, detach from the Tmux window by pressing `ctrl + b` and then `d`. This should return you to the view of your terminal before you opened the Tmux window.
