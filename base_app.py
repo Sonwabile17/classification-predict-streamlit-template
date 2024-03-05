@@ -61,25 +61,32 @@ def main():
 
     # Creating sidebar with selection box -
     # you can create multiple pages this way
-    options = ["Home", "Prediction", "Information"]
+    options = ["Prediction","Home","Information"]
     selection = st.sidebar.selectbox("Choose Option", options)
 
     # Building out the "Home" page
     if selection == "Home":
-        st.title("Welcome to Tweet Classifier")
-        st.write("Discover the power of sentiment analysis in understanding climate change. Choose the Prediction option to classify tweets and gain insights into public sentiment.")
+        image = "resources\imgs\welcomeDD.png"
+        st.image(image, use_column_width=True)
+        st.write("Unleashing the Power of Dynamic Insights!.")
         home_image_url = "https://news.yale.edu/sites/default/files/styles/card/public/thumbnail/noplanetb.jpg?itok=GiOFmagz&c=455e99c2afc4b0e725221b3110ce48b2"
         st.image(home_image_url, caption="Climate change awareness. Photo source: Yale News", use_column_width=True)
+        text = """ 
+        Vision Statement:
+        To be the leading provider of innovative data-driven solutions, 
+        empowering organizations to harness the power of data for informed decision-making and positive societal impact.
 
-    else:
-        # Creates a main title and subheader on your page -
-        # these are static across all pages
-        st.title("Tweet Classifier")
-        st.subheader("Climate change tweet classification")
+        Mission Statement:
+        At Data Dynamics, our mission is to leverage cutting-edge technologies and expertise in data analytics to unlock actionable insights from diverse data sources. 
+        We are committed to enabling businesses to make informed decisions, driving efficiency, sustainability, and growth. Through our dedication to automation and simplicity,
+        we aim to deliver user-friendly solutions that streamline processes and maximize the value of data. With a focus on partnership and collaboration, we strive to contribute
+        to a data-driven future that fosters innovation and addresses critical sociental challenges, such as climate change.
+                """
+        st.write(text)
 
         # Instructions based on the selected option
         if selection == "Prediction":
-            st.write("Explore the impact of climate change through tweet classification. Enter your tweet in the text area below and choose a model for classification.")
+            st.write("Explore the impact of climate change through tweet classification.")
 
         elif selection == "Information":
             st.write("Access valuable information related to climate change sentiment. Review the raw Twitter data and labels, and gain insights into the sentiment class distribution.")
@@ -88,21 +95,65 @@ def main():
 
     # Building out the "Information" page
     if selection == "Information":
-        st.info("General Information")
-        st.markdown("Some information here")
 
-        st.subheader("Sentiment Class Description")
-        st.write("Understanding the sentiment classes predicted by the model:")
-        st.write("Pro(1): 8,530 tweets are Pro, meaning they support the belief in man-made climate change.")
-        st.write("News(2): 3,640 tweets fall under News, indicating they share factual news about climate change.")
-        st.write("Neutral(0): 2,353 tweets neither support nor oppose the idea of man-made climate change.")
-        st.write("Anti(-1): 1,296 tweets express disbelief in man-made climate change.")
+        # local image file
+        image_path = "resources/imgs/info.jpg"
 
-        if st.checkbox('Show raw data'):  # data is hidden if the box is unchecked
-            st.write(raw[['sentiment', 'message']])  # will write the df to the page
+        # Center image
+        st.image(image_path, use_column_width=True, output_format='jpg', width=30)
+
+        text = """
+         General Information
+          
+         2 News: the tweet links to factual news about climate change
+
+         1 Pro: the tweet supports the belief of man-made climate change
+
+         0 Neutral: the tweet neither supports nor refutes the belief of man-made climate change
+
+         -1 Anti: the tweet does not believe in man-made climate change Variable definitions
+          """
+
+        st.info(text)
+        # You can read a markdown file from the supporting resources folder
+        
+
+        # Dataframe of sentiments and tweets
+        st.subheader("Raw Twitter data and label")
+        st.subheader("Sentiments:")
+
+        # Buttons
+        selected_sentiment1 = st.button("News = 2")
+        selected_sentiment2 = st.button("Pro = 1")
+        selected_sentiment3 = st.button("Neutral = 0")
+        selected_sentiment4 = st.button("Anti = -1")
+        selected_sentiment5 = st.button("All")
+ 
+        # Button function
+        if selected_sentiment5:
+            st.write(raw[['sentiment', 'message']])
+
+        if selected_sentiment1:
+            filtered_data1 = raw[raw['sentiment'] == 2]
+            st.write(filtered_data1[['sentiment', 'message']])
+
+        if selected_sentiment2:
+            filtered_data2 = raw[raw['sentiment'] == 1]
+            st.write(filtered_data2[['sentiment', 'message']])
+
+        if selected_sentiment3:
+            filtered_data3 = raw[raw['sentiment'] == 0]
+            st.write(filtered_data3[['sentiment', 'message']])
+
+        if selected_sentiment4:
+            filtered_data4 = raw[raw['sentiment'] == -1]
+            st.write(filtered_data4[['sentiment', 'message']])
 
     # Building out the "Prediction" page
     if selection == "Prediction":
+
+        image = "resources\imgs\predictions.jpg"
+        st.image(image, use_column_width=True)
         st.info("Prediction with ML Models")
         # Creating a text box for user input
         tweet_text = st.text_area("Enter Text", "")
@@ -140,7 +191,7 @@ def main():
 
                 # Mapping numerical predictions to sentiment labels
                 sentiment_labels = {
-                    -1: "Anti",
+                   -1: "Anti",
                     0: "Neutral",
                     1: "Pro",
                     2: "News"
