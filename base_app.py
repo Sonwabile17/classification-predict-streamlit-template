@@ -66,7 +66,7 @@ def main():
 
     # Building out the "Home" page
     if selection == "Home":
-        image = "resources\imgs\welcomeDD.png"
+        image = r"resources\imgs\welcomeDD.png"
         st.image(image, use_column_width=True)
         st.write("Unleashing the Power of Dynamic Insights!.")
         home_image_url = "https://news.yale.edu/sites/default/files/styles/card/public/thumbnail/noplanetb.jpg?itok=GiOFmagz&c=455e99c2afc4b0e725221b3110ce48b2"
@@ -97,7 +97,7 @@ def main():
     if selection == "Information":
 
         # local image file
-        image_path = "resources/imgs/info.jpg"
+        image_path = r"resources/imgs/info.jpg"
 
         # Center image
         st.image(image_path, use_column_width=True, output_format='jpg', width=30)
@@ -152,10 +152,7 @@ def main():
     # Building out the "Prediction" page
     if selection == "Prediction":
         
-        info_image_url = "https://github.com/Sonwabile17/classification-predict-streamlit-template/blob/ad7756d2c83bc979359907258e20b3f02c92ea4c/resources/imgs/predictions.jpg"
-        st.image(info_image_url, use_column_width=True)
-
-        image = "resources\imgs\predictions.jpg"
+        image = r"resources\imgs\predictions.jpg"
         st.image(image, use_column_width=True)
         st.info("Prediction with ML Models")
         # Creating a text box for user input
