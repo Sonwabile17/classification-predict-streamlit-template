@@ -67,9 +67,7 @@ def main():
     # Building out the "Home" page
     if selection == "Home":
 
-        image_path = "resources/imgs/welcomeDD.png"
-        image = open(image_path, "rb").read()
-        st.image(image, use_column_width=True)
+        st.header("HOME")
 
         st.write("Unleashing the Power of Dynamic Insights!.")
         home_image_url = "https://news.yale.edu/sites/default/files/styles/card/public/thumbnail/noplanetb.jpg?itok=GiOFmagz&c=455e99c2afc4b0e725221b3110ce48b2"
@@ -99,9 +97,7 @@ def main():
     # Building out the "Information" page
     if selection == "Information":
 
-        image_path = "resources/imgs/info.jpg"
-        image = open(image_path, "rb").read()
-        st.image(image, use_column_width=True)
+        st.header("INFORMATION")
 
         text = """
          General Information
@@ -153,10 +149,7 @@ def main():
     # Building out the "Prediction" page
     if selection == "Prediction":
 
-        image_path = "resources/imgs/predictions.jpg"
-        image = open(image_path, "rb").read()
-
-        st.image(image, use_column_width=True)
+        st.header("PREDICTION")
         
         st.info("Prediction with ML Models")
         # Creating a text box for user input
