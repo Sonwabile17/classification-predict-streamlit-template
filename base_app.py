@@ -151,6 +151,9 @@ def main():
 
     # Building out the "Prediction" page
     if selection == "Prediction":
+        
+        info_image_url = "https://github.com/Sonwabile17/classification-predict-streamlit-template/blob/ad7756d2c83bc979359907258e20b3f02c92ea4c/resources/imgs/predictions.jpg"
+        st.image(info_image_url, use_column_width=True)
 
         image = "resources\imgs\predictions.jpg"
         st.image(image, use_column_width=True)
