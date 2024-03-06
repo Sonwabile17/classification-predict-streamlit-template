@@ -67,7 +67,7 @@ def main():
     # Building out the "Home" page
     if selection == "Home":
 
-        st.header("HOME")
+        st.image("resources/welcomeDD.png", width=700)
 
         st.write("Unleashing the Power of Dynamic Insights!.")
         home_image_url = "https://news.yale.edu/sites/default/files/styles/card/public/thumbnail/noplanetb.jpg?itok=GiOFmagz&c=455e99c2afc4b0e725221b3110ce48b2"
@@ -87,6 +87,9 @@ def main():
 
         # Instructions based on the selected option
         if selection == "Prediction":
+
+            st.image("resources/welcomeDD.png", width=700)
+            
             st.write("Explore the impact of climate change through tweet classification.")
 
         elif selection == "Information":
@@ -97,7 +100,7 @@ def main():
     # Building out the "Information" page
     if selection == "Information":
 
-        st.header("INFORMATION")
+        st.image("resources/info.jpg", width=700)
 
         text = """
          General Information
@@ -149,7 +152,7 @@ def main():
     # Building out the "Prediction" page
     if selection == "Prediction":
 
-        st.header("PREDICTION")
+        st.image("resources/predictions.jpg", width=700)
         
         st.info("Prediction with ML Models")
         # Creating a text box for user input
